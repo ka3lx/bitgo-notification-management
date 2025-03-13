@@ -38,10 +38,10 @@ router.get("/list", (req, res) => {
         );
         return res.status(200).json({ notifications: notificationsList });
       } else {
-        return res.status(400);
+        return res.status(400).send({ message: "Invalid status" });
       }
     } else {
-      return res.status(402).json({ notifications });
+      return res.status(200).json({ notifications });
     }
   } catch (error) {
     return res.status(500).send(error.message);
